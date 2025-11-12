@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Dice Roller</title>
+    <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" />
+    <script defer src="https://pyscript.net/latest/pyscript.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        button {
+            font-size: 18px;
+            padding: 10px 20px;
+            margin-top: 20px;
+        }
+        #output {
+            margin-top: 30px;
+            font-size: 22px;
+            color: #2c3e50;
+        }
+    </style>
+</head>
+<body>
+    <h1>🎲 Dice Roller</h1>
+    <p>Натисни кнопку, щоб кинути кубик!</p>
+    <button id="roll-btn">Кинути кубик</button>
+    <div id="output"></div>
+
+    <py-script>
+import random
+from js import document
+
+def roll_dice(event):
+    dice = random.randint(1, 6)
+    document.getElementById("output").innerHTML = f"Випало: 🎲 {dice}"
+
+# Прив’язуємо кнопку до функції
+document.getElementById("roll-btn").addEventListener("click", roll_dice)
+    </py-script>
+</body>
+</html>
